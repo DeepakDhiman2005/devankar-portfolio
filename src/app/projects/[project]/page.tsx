@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: tParams }): Promise
     const { project } = await params;
 
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    // console.log(baseUrl);
     const response = await fetch(`${baseUrl}/api/project?id=${project}`);
     const { data } = (await response.json()) as ApiResponse;
 
