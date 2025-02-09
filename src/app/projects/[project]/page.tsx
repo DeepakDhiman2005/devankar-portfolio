@@ -3,26 +3,26 @@ import "../../../styles/projects.scss";
 import ProjectSlider from "@/components/project-comp/ProjectSlider";
 
 interface ProjectInterface {
-    title?: string,
-    homeImage?: string,
-    images?: Array<string>,
-    technology?: Array<string>,
-    completeTechnology?: Array<string>,
-    content?: string,
-    id?: string,
+    title?: string;
+    homeImage?: string;
+    images?: Array<string>;
+    technology?: Array<string>;
+    completeTechnology?: Array<string>;
+    content?: string;
+    id?: string;
 }
 
 interface ApiResponse {
-    data: ProjectInterface | null
+    data: ProjectInterface | null;
 }
 
-export async function generateMetadata({
-    params
-}: {
-    params: { project: string }
-}): Promise<Metadata> {
-    const { project } = await Promise.resolve(params);
-    const response = await fetch('http://localhost:3000/api/project?id=' + project);
+type tParams = Promise<{ project: string }>;
+
+export async function generateMetadata({ params }: { params: tParams }): Promise<Metadata> {
+    const { project } = await params;
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const response = await fetch(`${baseUrl}/api/project?id=${project}`);
     const { data } = (await response.json()) as ApiResponse;
 
     return {
@@ -31,45 +31,33 @@ export async function generateMetadata({
         openGraph: {
             title: data?.title,
             description: data?.content,
-            images: data?.images ? data?.images : [],
+            images: data?.images || [],
         },
     };
 }
 
-const Project = async ({ params }: {
-    params: { project: string }
-}) => {
-    const { project } = await Promise.resolve(params);
-    const response = await fetch('http://localhost:3000/api/project?id=' + project);
+const Project = async ({ params }: { params: tParams }) => {
+    const { project } = await params; // ✅ Direct destructuring
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const response = await fetch(`${baseUrl}/api/project?id=${project}`);
     const { data } = (await response.json()) as ApiResponse;
 
-    // const technology: Array<string> = [
-    //     "react.js",
-    //     "tailwindcss",
-    //     "react-countup",
-    //     "@material-tailwindcss/react",
-    // ]
-
-    return <>
+    return (
         <main className="w-full flex justify-start items-start gap-x-12 py-10 px-12">
             <div className="w-1/2">
-                <ProjectSlider
-                    images={data?.images as string[]}
-                />
+                <ProjectSlider images={data?.images as string[]} />
             </div>
             <div className="w-1/2 project-page">
-                <h1 className="main-heading">{data && data?.['title']}</h1>
+                <h1 className="main-heading">{data?.title}</h1>
                 <div className="technology-section my-2">
-                    {
-                        data ? data?.completeTechnology?.map((item, index) => (
-                            <div key={index} className="item">{item}</div>
-                        )) : null
-                    }
+                    {data?.completeTechnology?.map((item, index) => (
+                        <div key={index} className="item">{item}</div>
+                    ))}
                 </div>
-                <p>{data && data?.content}</p>
+                <p>{data?.content}</p>
             </div>
         </main>
-    </>
-}
+    );
+};
 
 export default Project;

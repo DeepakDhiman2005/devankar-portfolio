@@ -36,7 +36,8 @@ const Projects = () => {
 
     const [projects, setProjects] = useState<ProjectInterface[]>([]);
     const fetchProjects = async () => {
-        const response = await fetch('http://localhost:3000/api/projects');
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+        const response = await fetch(`${baseUrl}/api/projects`);
         const { data } = (await response.json()) as ApiResponse;
         if (data.projects) {
             setProjects(data.projects);
