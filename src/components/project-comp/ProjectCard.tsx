@@ -32,40 +32,40 @@ const ProjectCard = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleOpen = () => setIsOpen(!isOpen);
 
-  const handleAnimation = () => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current,
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top center",
-            toggleActions: "play none none reverse", // Play on scroll, reverse on scroll back
-          },
-        }
-      );
-    }
-  };
+//   const handleAnimation = () => {
+//     if (containerRef.current) {
+//       gsap.fromTo(
+//         containerRef.current,
+//         { y: 30, opacity: 0 },
+//         {
+//           y: 0,
+//           opacity: 1,
+//           duration: 0.7,
+//           ease: "power2.inOut",
+//           scrollTrigger: {
+//             trigger: containerRef.current,
+//             start: "top center",
+//             toggleActions: "play none none reverse", // Play on scroll, reverse on scroll back
+//           },
+//         }
+//       );
+//     }
+//   };
 
-  useEffect(() => {
-    if (image) {
-      // Delay animation until image loads
-      const img = new window.Image();
-      img.src = image;
-      img.onload = () => handleAnimation();
-    } else {
-      handleAnimation();
-    }
+//   useEffect(() => {
+//     if (image) {
+//       // Delay animation until image loads
+//       const img = new window.Image();
+//       img.src = image;
+//       img.onload = () => handleAnimation();
+//     } else {
+//       handleAnimation();
+//     }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [image]);
+//     return () => {
+//       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+//     };
+//   }, [image]);
 
   return (
     <>
@@ -106,7 +106,7 @@ const ProjectCard = ({
                 alt="project image"
                 width={1000}
                 height={1000}
-                onLoad={handleAnimation} // Trigger animation when image loads
+                // onLoad={handleAnimation} // Trigger animation when image loads
                 priority // Faster LCP
               />
             ) : (

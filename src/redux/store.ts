@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import actionReducer from "./features/action";
 
-// features
-import action from './features/action';
-
-const store = configureStore({
+export const store = configureStore({
     reducer: {
-        action,
+        action: actionReducer,
     },
 });
 
-export default store;
+// ✅ Define RootState type
+export type RootState = ReturnType<typeof store.getState>; 
+export type AppDispatch = typeof store.dispatch;

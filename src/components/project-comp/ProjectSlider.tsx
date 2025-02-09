@@ -7,30 +7,27 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { Swiper as SwiperType } from "swiper";  // ✅ Import Swiper type
 
-const ProjectSlider = ({
-    images = []
-}: {
-    images: Array<string> | undefined,
-}) => {
-    const swiperRef = useRef<any>(null);
-    const [isActive, setIsActive] = useState<string | undefined>(images && images?.[0]);
+interface ProjectSliderProps {
+    images: string[];
+}
 
-    const ImageButton = ({ src, active }: { src?: string, active?: boolean }) => {
-        return <div className={`project-slider-button-image ${active && 'active'}`} onClick={() => setIsActive(src)}>
-            {/* <img src={src} alt="image" className="w-full h-auto" /> */}
+const ProjectSlider = ({ images = [] }: ProjectSliderProps) => {
+    const swiperRef = useRef<SwiperType | null>(null); // ✅ Replaced `any` with `SwiperType`
+    const [isActive, setIsActive] = useState<string | undefined>(images?.[0]);
+
+    const ImageButton = ({ src, active }: { src?: string; active?: boolean }) => (
+        <div className={`project-slider-button-image ${active ? 'active' : ''}`} onClick={() => setIsActive(src)}>
             <Image src={src as string} alt="image" width={1000} height={1000} className="w-full h-auto" />
         </div>
-    }
-    // let image_path: string = "/images/konceptlaw";
+    );
 
-    return <>
+    return (
         <section className="project-slider">
             <div className="left">
                 <div className="arrow-container">
-                    <div className="arrow"
-                        onClick={() => swiperRef.current?.slidePrev()}
-                    >
+                    <div className="arrow" onClick={() => swiperRef.current?.slidePrev()}>
                         <IoIosArrowUp size={18} />
                     </div>
                 </div>
@@ -42,17 +39,16 @@ const ProjectSlider = ({
                         centeredSlides
                         spaceBetween={50}
                         effect="coverflow"
-                        // centeredSlides
                         modules={[EffectCoverflow, Pagination]}
                         coverflowEffect={{
-                            rotate: 0,                      // Rotate angle
-                            stretch: 0,                      // Stretch between slides
-                            depth: 250,                      // Depth for 3D effect
-                            modifier: 1,                     // Effect intensity
-                            slideShadows: false,              // Enable slide shadows
+                            rotate: 0,
+                            stretch: 0,
+                            depth: 250,
+                            modifier: 1,
+                            slideShadows: false,
                             scale: 1.1,
                         }}
-                        className="h-full"                 // Full height for Swiper
+                        className="h-full"
                     >
                         {images.map((item, index) => (
                             <SwiperSlide key={index}>
@@ -62,22 +58,18 @@ const ProjectSlider = ({
                     </Swiper>
                 </div>
                 <div className="arrow-container">
-                    <div className="arrow"
-                        onClick={() => swiperRef.current?.slideNext()}
-                    >
+                    <div className="arrow" onClick={() => swiperRef.current?.slideNext()}>
                         <IoIosArrowDown size={18} />
                     </div>
                 </div>
-                {/* <ImageButton src={`${image_path}/1.png`} /> */}
             </div>
             <div className="right">
-                <a href={isActive} target="_blank" className="w-full h-auto">
-                    {/* <img src={isActive} alt="image" className="w-full h-auto slider-image" /> */}
+                <a href={isActive} target="_blank" rel="noopener noreferrer" className="w-full h-auto">
                     <Image src={isActive as string} alt="image" width={1000} height={1000} className="w-full h-auto slider-image" />
                 </a>
             </div>
         </section>
-    </>
-}
+    );
+};
 
 export default ProjectSlider;

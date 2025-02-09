@@ -79,7 +79,7 @@ const About = () => {
 
                 <div className="about-intro overflow-hidden">
                     <h1>About Us</h1>
-                    <h3>I'm Devankar. Frontend (React.js) Developer.</h3>
+                    <h3>I{"\'"}m Devankar. Frontend (React.js) Developer.</h3>
                     <p className="font-medium"><span className="font-semibold">Email:</span> dhimandeepak957@gmail.com</p>
                     <p className="font-medium"><span className="font-semibold">Mobile:</span> 91+ 9319558980</p>
                     <p className="font-medium"><span className="font-semibold">Eduction:</span> BCA (Present)</p>

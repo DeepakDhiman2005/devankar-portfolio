@@ -54,7 +54,7 @@ const Project = async ({ params }: {
         <main className="w-full flex justify-start items-start gap-x-12 py-10 px-12">
             <div className="w-1/2">
                 <ProjectSlider
-                    images={data?.images}
+                    images={data?.images as string[]}
                 />
             </div>
             <div className="w-1/2 project-page">

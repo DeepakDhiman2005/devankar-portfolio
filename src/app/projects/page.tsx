@@ -1,14 +1,17 @@
 "use client";
 
-import ProjectCard from "@/components/project-comp/ProjectCard";
+// import ProjectCard from "@/components/project-comp/ProjectCard";
 import "../../styles/projects.scss";
 import { useEffect, useRef, useState } from "react";
 
 // gsap
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// components
 import ProjectCardSkeleton from "@/components/project-comp/ProjectCardSkeleton";
 import MainHeading from "@/components/heading/MainHeading";
+import ProjectOnlyCard from "@/components/project-comp/ProjectOnlyCard";
 
 interface ProjectInterface {
     title?: string,
@@ -79,7 +82,7 @@ const Projects = () => {
                     {
                         projects && projects.length > 0 ? projects?.map((item, index) => (
                             <div className="w-full h-auto" key={index}>
-                                <ProjectCard
+                                <ProjectOnlyCard
                                     title={item?.title}
                                     image={item?.homeImage}
                                     technology={item?.technology}

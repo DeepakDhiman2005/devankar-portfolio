@@ -1,13 +1,21 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+
+// swiper
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import { Swiper as SwiperType } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+
+// components
 import "../../styles/skills.scss";
 import MainHeading from "@/components/heading/MainHeading";
 
+// gsap
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// image
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +26,7 @@ interface ProgrammingLanguagesInterface {
 }
 
 const Skills = () => {
-    const swiperRef = useRef<any>(null);
+    const swiperRef = useRef<SwiperType | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [activeIndex, setActiveIndex] = useState<number>(0);
 

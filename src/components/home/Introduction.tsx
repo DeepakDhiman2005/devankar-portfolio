@@ -19,9 +19,19 @@ import { useEffect, useRef, useState } from "react";
 import ProjectCard from "../project-comp/ProjectCard";
 import ViewProjectsCard from "../project-comp/ViewProjectsCard";
 
+interface ProjectInterface {
+    title?: string,
+    homeImage?: string,
+    images?: Array<string>,
+    technology?: Array<string>,
+    completeTechnology?: Array<string>,
+    content?: string,
+    id?: string,
+}
+
 interface ApiResponse {
     data: {
-        projects: Array<any>,
+        projects: Array<ProjectInterface>,
     }
 }
 
@@ -32,7 +42,7 @@ const Introduction = () => {
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     // state
-    const [projects, setProjects] = useState<any[]>([]);
+    const [projects, setProjects] = useState<ProjectInterface[]>([]);
 
     const fetchProject = async () => {
         const response = await fetch('http://localhost:3000/api/projects');
@@ -52,7 +62,6 @@ const Introduction = () => {
         const ctx = gsap.context(() => {
             if (projects && projects.length > 0) {
                 const myProjects = gsap.utils.toArray('.projects-section > div');
-                // console.log('my projects', myProjects);
 
                 gsap.to(myProjects, {
                     xPercent: -80 * (myProjects.length - 1),
@@ -77,13 +86,13 @@ const Introduction = () => {
                 <div className="left">
                     <div className="flex justify-start flex-col items-start">
                         <h1>Hello</h1>
-                        <h1>I'm Devankar</h1>
+                        <h1>I{"\'"}m Devankar</h1>
                     </div>
                     <p>I am mern stack developer. I have 1 year+ experience in React.js Frontend Development.</p>
 
                     <div className="flex justify-start items-center gap-x-4">
                         <MyButton>Learn</MyButton>
-                        <MyButton>Explor</MyButton>
+                        <MyButton>Explore</MyButton>
                     </div>
                 </div>
 
@@ -101,7 +110,7 @@ const Introduction = () => {
                 <Heading>Projects</Heading>
                 <div className="projects-section grid grid-cols-7">
                     {
-                        projects ? projects?.map((item, index) => (
+                        projects?.map((item, index) => (
                             <ProjectCard
                                 key={index}
                                 title={item?.title}
@@ -110,10 +119,10 @@ const Introduction = () => {
                                 content={item?.content}
                                 id={item?.id}
                             />
-                        )) : null
+                        ))
                     }
                     {
-                        projects ? <ViewProjectsCard />: null
+                        projects.length > 0 && <ViewProjectsCard />
                     }
 
                 </div>
