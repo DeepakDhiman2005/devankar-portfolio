@@ -8,6 +8,7 @@ import MainHeading from "@/components/heading/MainHeading";
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -215,7 +216,15 @@ const Skills = () => {
                                         // className={`flex items-center justify-center h-[300px] text-white text-2xl font-bold`}
                                         className="skills-card"
                                     >
-                                        <img src={image} alt={`${title} Image`} />
+                                        {/* <img src={image} alt={`${title} Image`} /> */}
+                                        <div className="image">
+                                            <Image
+                                                src={image as string}
+                                                alt={`${title} Image`}
+                                                width={1000}
+                                                height={1000}
+                                            />
+                                        </div>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -290,7 +299,15 @@ const Skills = () => {
                                     <div
                                         className="skills-card"
                                     >
-                                        <img src={image} alt={`${title} Image`} />
+                                        {/* <img src={image} alt={`${title} Image`} /> */}
+                                        <div className="image">
+                                            <Image
+                                                src={image as string}
+                                                alt={`${title} Image`}
+                                                width={1000}
+                                                height={1000}
+                                            />
+                                        </div>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -351,7 +368,15 @@ const Skills = () => {
                                     <div
                                         className="skills-card"
                                     >
-                                        <img src={image} alt={`${title} Image`} />
+                                        {/* <img src={image} alt={`${title} Image`} /> */}
+                                        <div className="image">
+                                            <Image
+                                                src={image as string}
+                                                alt={`${title} Image`}
+                                                width={1000}
+                                                height={1000}
+                                            />
+                                        </div>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -371,7 +396,15 @@ const Skills = () => {
                         <div
                             className="skills-card"
                         >
-                            <img src={'/images/programming-images/mongo.png'} alt={`MongoDB Image`} />
+                            {/* <img src={'/images/programming-images/mongo.png'} alt={`MongoDB Image`} /> */}
+                            <div className="image">
+                                <Image
+                                    src='/images/programming-images/mongo.png'
+                                    alt={`MongoDB Image`}
+                                    width={1000}
+                                    height={1000}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

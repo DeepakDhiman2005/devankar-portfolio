@@ -43,12 +43,12 @@ const Project = async ({ params }: {
     const response = await fetch('http://localhost:3000/api/project?id=' + project);
     const { data } = (await response.json()) as ApiResponse;
 
-    const technology: Array<string> = [
-        "react.js",
-        "tailwindcss",
-        "react-countup",
-        "@material-tailwindcss/react",
-    ]
+    // const technology: Array<string> = [
+    //     "react.js",
+    //     "tailwindcss",
+    //     "react-countup",
+    //     "@material-tailwindcss/react",
+    // ]
 
     return <>
         <main className="w-full flex justify-start items-start gap-x-12 py-10 px-12">

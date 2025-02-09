@@ -1,7 +1,6 @@
 "use client";
 
 import { setAction } from "@/redux/features/action";
-import { Drawer } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 
 import "../styles/navbar.scss";
@@ -16,7 +15,9 @@ const Sidebar = () => {
 
     const dispatch = useDispatch();
     const sidebar = useSelector<any>((state) => state.action.sidebar);
-    const handleClose = () => dispatch(setAction({ sidebar: false }));
+    const handleClose = () => {
+        dispatch(setAction({ sidebar: false }));
+    }
     const pathname = usePathname();
 
     useEffect(() => {

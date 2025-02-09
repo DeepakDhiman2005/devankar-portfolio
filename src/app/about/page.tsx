@@ -5,6 +5,7 @@ import Heading from "@/components/heading/Heading";
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -65,7 +66,15 @@ const About = () => {
             <section className="section1">
                 <div className="image">
                     <div className="circle"></div>
-                    <img src="/images/gallery/devankar.jpg" alt="image" />
+                    {/* <img src="/images/gallery/devankar.jpg" alt="image" /> */}
+                    <div className="image">
+                        <Image
+                            src="/images/gallery/devankar.jpg"
+                            alt="image"
+                            width={1000}
+                            height={1000}
+                        />
+                    </div>
                 </div>
 
                 <div className="about-intro overflow-hidden">

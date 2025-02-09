@@ -21,7 +21,8 @@ $image-size: 250px;
             width: $image-size;
             // height: $image-size;
             position: relative;
-            padding: 5px;
+            // padding: 5px;
+            padding: 2px;
 
             .circle {
                 background: conic-gradient($rose-bg, $blue-bg);
@@ -36,7 +37,9 @@ $image-size: 250px;
                 animation: image-background-rotate 3s linear infinite;
             }
 
-            img {
+            img,
+            .image {
+                overflow: hidden;
                 width: 100%;
                 // height: 100%;
                 border-radius: 50%;

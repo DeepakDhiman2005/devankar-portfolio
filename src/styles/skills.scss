@@ -62,11 +62,16 @@ $white-color: rgba(205, 218, 255, 0.993);
         justify-content: center;
         align-items: center;
 
-        img {
+        img,
+        .image {
             $size: 200px;
             width: $size;
+            overflow: hidden;
             height: auto;
-            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.7));
+
+            img {
+                filter: drop-shadow(0 2px 4px rgba(5, 5, 5, 0.822));
+            }
         }
     }
 

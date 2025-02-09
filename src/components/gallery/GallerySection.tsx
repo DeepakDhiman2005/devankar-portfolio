@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../../styles/home.scss";
 
 const GallerySection = () => {
@@ -6,9 +7,24 @@ const GallerySection = () => {
             <h1>Gallery</h1>
 
             <div className="images">
-                <img src="/images/gallery/devankar.jpg" alt="image" className="w-full h-full" />
-                <img src="/images/gallery/team1.png" alt="image" />
-                <img src="/images/gallery/team2.jpg" alt="image" />
+                <Image
+                    src={"/images/gallery/devankar.jpg"}
+                    alt="image"
+                    width={1000}
+                    height={1000}
+                />
+                <Image
+                    src={"/images/gallery/team1.png"}
+                    alt="image"
+                    width={1000}
+                    height={1000}
+                />
+                <Image
+                    src={"/images/gallery/team2.png"}
+                    alt="image"
+                    width={1000}
+                    height={1000}
+                />
             </div>
         </section>
     </>

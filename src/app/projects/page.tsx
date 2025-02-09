@@ -10,9 +10,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCardSkeleton from "@/components/project-comp/ProjectCardSkeleton";
 import MainHeading from "@/components/heading/MainHeading";
 
+interface ProjectInterface {
+    title?: string,
+    homeImage?: string,
+    images?: Array<string>,
+    technology?: Array<string>,
+    completeTechnology?: Array<string>,
+    content?: string,
+    id?: string,
+}
+
 interface ApiResponse {
     data: {
-        projects: Array<any>,
+        projects: Array<ProjectInterface>,
     }
 }
 
@@ -21,8 +31,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Projects = () => {
     const containerRef = useRef<HTMLDivElement | null>(null);
 
-    const [projects, setProjects] = useState<any[]>([]);
-    const useProjects = async () => {
+    const [projects, setProjects] = useState<ProjectInterface[]>([]);
+    const fetchProjects = async () => {
         const response = await fetch('http://localhost:3000/api/projects');
         const { data } = (await response.json()) as ApiResponse;
         if (data.projects) {
@@ -32,31 +42,31 @@ const Projects = () => {
     // console.log(data.projects);
 
     useEffect(() => {
-        useProjects();
+        fetchProjects();
     }, []);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const myProjects = gsap.utils.toArray('.project-cards .project-card');
-            myProjects.forEach((item) => {
-                const project = item as HTMLElement;
-                gsap.fromTo(project, {
-                    y: 30,
-                    opacity: 0,
-                }, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.7,
-                    ease: "power2.inOut",
-                    scrollTrigger: {
-                        trigger: project,
-                        start: 'top center',
-                    }
-                });
-            })
-        }, containerRef);
-        return () => ctx.revert();
-    }, [projects]);
+    // useEffect(() => {
+    //     const ctx = gsap.context(() => {
+    //         const myProjects = gsap.utils.toArray('.project-cards .project-card');
+    //         myProjects.forEach((item) => {
+    //             const project = item as HTMLElement;
+    //             gsap.fromTo(project, {
+    //                 y: 30,
+    //                 opacity: 0,
+    //             }, {
+    //                 y: 0,
+    //                 opacity: 1,
+    //                 duration: 0.7,
+    //                 ease: "power2.inOut",
+    //                 scrollTrigger: {
+    //                     trigger: project,
+    //                     start: 'top center',
+    //                 }
+    //             });
+    //         })
+    //     }, containerRef);
+    //     return () => ctx.revert();
+    // }, [projects]);
 
     return <>
         <main ref={containerRef} className="projects-section">

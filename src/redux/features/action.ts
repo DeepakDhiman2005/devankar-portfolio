@@ -1,19 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState: any = {
-    sidebar: false
+// Define the type for the state
+interface ActionState {
+    sidebar: boolean;
+    [key: string]: boolean | string | number | undefined;  // For dynamic keys
 }
+
+const initialState: ActionState = {
+    sidebar: false,
+};
 
 const actionSlice = createSlice({
     name: 'action',
     initialState,
     reducers: {
-        setAction: (state, {payload}) => {
-            Object.keys(payload).forEach((key) => {
-                state[key] = payload[key];
-            })
-        }
-    }
+        setAction: (state, action: PayloadAction<Partial<ActionState>>) => {
+            Object.keys(action.payload).forEach((key) => {
+                state[key] = action.payload[key];
+            });
+        },
+    },
 });
 
 export const { setAction } = actionSlice.actions;

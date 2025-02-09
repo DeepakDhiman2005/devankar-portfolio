@@ -6,6 +6,7 @@ import "swiper/swiper-bundle.css";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 const ProjectSlider = ({
     images = []
@@ -17,7 +18,8 @@ const ProjectSlider = ({
 
     const ImageButton = ({ src, active }: { src?: string, active?: boolean }) => {
         return <div className={`project-slider-button-image ${active && 'active'}`} onClick={() => setIsActive(src)}>
-            <img src={src} alt="image" className="w-full h-auto" />
+            {/* <img src={src} alt="image" className="w-full h-auto" /> */}
+            <Image src={src as string} alt="image" width={1000} height={1000} className="w-full h-auto" />
         </div>
     }
     // let image_path: string = "/images/konceptlaw";
@@ -70,7 +72,8 @@ const ProjectSlider = ({
             </div>
             <div className="right">
                 <a href={isActive} target="_blank" className="w-full h-auto">
-                    <img src={isActive} alt="image" className="w-full h-auto slider-image" />
+                    {/* <img src={isActive} alt="image" className="w-full h-auto slider-image" /> */}
+                    <Image src={isActive as string} alt="image" width={1000} height={1000} className="w-full h-auto slider-image" />
                 </a>
             </div>
         </section>
