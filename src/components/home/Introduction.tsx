@@ -116,6 +116,7 @@ const Introduction = () => {
                                 title={item?.title}
                                 image={item?.homeImage}
                                 technology={item?.technology}
+                                completeTechnology={item?.completeTechnology}
                                 content={item?.content}
                                 id={item?.id}
                             />
