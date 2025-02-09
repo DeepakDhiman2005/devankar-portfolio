@@ -1,0 +1,126 @@
+$rose-bg: rgba(233, 75, 75, 0.911);
+$blue-bg: rgb(92, 92, 224);
+$yellow-color: #d6c25dd3;
+$white-color: rgba(205, 218, 255, 0.993);
+
+.skills-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0px;
+    gap: 40px;
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 600;
+        background: linear-gradient(180deg, $rose-bg 40%, $yellow-color 80%);
+        // background: linear-gradient(180deg, $blue-bg 50%, $white-color 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+        line-height: 1.2;
+        // -webkit-text-stroke: 1px #d6c25d15;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0px 0px 10px 1px #dbdbdb;
+
+        .left,
+        .right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 5px;
+
+            h2 {
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: $rose-bg;
+            }
+        }
+    }
+
+    .skills-card {
+        height: 300px;
+        width: 100%;
+        color: white;
+        // background-color: #1f232e;
+        border-radius: 2rem;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            $size: 200px;
+            width: $size;
+            height: auto;
+            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.7));
+        }
+    }
+
+    .custom-swiper {
+        .swiper-pagination-bullet {
+            background-color: rgba(233, 75, 75, 0.911) !important;
+            opacity: 0.6;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: rgba(233, 75, 75, 0.911) !important;
+            scale: 1.2;
+            opacity: 1;
+        }
+    }
+
+    .custom-pagination-swiper {
+        .circle {
+            $size: 8px;
+            cursor: pointer;
+
+            background-color: rgba(233, 75, 75, 0.911) !important;
+            width: $size;
+            height: $size;
+            border-radius: 50%;
+            opacity: 0.6;
+            transition: background-color 0.7s ease-in-out;
+        }
+
+        .active {
+            background-color: rgba(233, 75, 75, 0.911) !important;
+            scale: 1.2;
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 678px) {
+    .skills-container {
+        section {
+            flex-direction: column-reverse;
+            gap: 20px;
+            padding: 2rem 1rem;
+            width: 95%;
+
+            .left,
+            .right {
+                width: 100%;
+                text-align: start;
+
+                h2 {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

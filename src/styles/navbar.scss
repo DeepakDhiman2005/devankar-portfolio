@@ -1,0 +1,100 @@
+// variables
+$rose-bg: rgba(233, 75, 75, 0.911);
+
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    z-index: 50;
+
+    .links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        li {
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.4s ease-in-out;
+
+            &:hover {
+                color: $rose-bg;
+            }
+        }
+
+        li.active {
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 3px;
+            text-decoration-color: $rose-bg;
+        }
+    }
+
+    .burger {
+        display: none;
+        cursor: pointer;
+        transition: color 0.4s ease-in-out;
+
+        &:hover {
+            color: $rose-bg;
+        }
+    }
+}
+
+.logo {
+    user-select: none;
+    font-weight: 600;
+    font-size: 25px;
+    position: relative;
+    width: auto;
+    display: inline-block;
+
+    &::after {
+        $aspect-ration: 6px;
+
+        content: '';
+        position: absolute;
+        bottom: 25%;
+        right: -8%;
+        background-color: $rose-bg;
+        width: $aspect-ration;
+        height: $aspect-ration;
+        border-radius: 50%;
+        display: block;
+    }
+}
+
+.sidebar-cross {
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+
+    &:hover {
+        color: $rose-bg;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        .links {
+            display: none;
+        }
+
+        .burger {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .navbar {
+        padding: 20px 20px;
+    }
+}

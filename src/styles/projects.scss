@@ -1,0 +1,338 @@
+$rose-bg: rgba(233, 75, 75, 0.911);
+$blue-bg: rgb(92, 92, 224);
+$yellow-color: #d6c25dd3;
+$white-color: rgba(205, 218, 255, 0.993);
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0;
+    gap: 1rem;
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 600;
+        background: linear-gradient(180deg, $rose-bg 40%, $yellow-color 80%);
+        // background: linear-gradient(180deg, $blue-bg 50%, $white-color 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+        line-height: 1.2;
+        // -webkit-text-stroke: 1px #d6c25d15;
+    }
+
+    .main-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        padding: 2rem 3rem;
+    }
+}
+
+.image-loader {
+    width: 100%;
+    height: 200px;
+    background-color: #dbdbdb; // Base background
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; // Optional rounded corners
+
+    // Shimmer Effect
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%; // Start outside the container
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+        animation: shimmer 1.5s infinite ease-in-out;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -150%;
+    }
+
+    50% {
+        left: 100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    gap: 10px;
+    cursor: pointer;
+
+    .image {
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 6px 4px #dbdbdb;
+        transition: all 0.5s ease-in-out;
+        width: 100%;
+
+        img {
+            transition: all 0.7s ease-in-out;
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+
+    .technology-section {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .item {
+            padding: 6px 8px;
+            border: 2px dotted #353535;
+            color: #000000;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+            font-size: 15px;
+
+            &:hover {
+                background-color: $rose-bg;
+                color: white;
+                border: 2px solid $rose-bg;
+            }
+        }
+    }
+
+    h2 {
+        color: $rose-bg;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    button {
+        color: $rose-bg;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+    }
+}
+
+.project-card-skeleton {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 15px;
+    flex-direction: column;
+
+    .image-loader {
+        width: 100%;
+        height: 200px;
+        background-color: #dbdbdb; // Base background
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px; // Optional rounded corners
+
+        // Shimmer Effect
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%; // Start outside the container
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shimmer 1.5s infinite ease-in-out;
+        }
+    }
+
+    .line {
+        width: 80%;
+        background-color: #dbdbdb; // Base background
+        border-radius: 8px;
+        height: 6px;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%; // Start outside the container
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shimmer 1.5s infinite ease-in-out;
+        }
+    }
+
+    .technology-section {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .item {
+            padding: 6px 8px;
+            border: 2px dotted #353535;
+            color: #000000;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+            font-size: 15px;
+            width: 50px;
+            height: 30px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+
+            &:hover {
+                background-color: $rose-bg;
+                color: white;
+                border: 2px solid $rose-bg;
+            }
+        }
+    }
+}
+
+.project-page {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+
+    .main-heading {
+        font-size: 2rem;
+        font-weight: 600;
+        background: linear-gradient(180deg, $rose-bg 40%, $yellow-color 80%);
+        // background: linear-gradient(180deg, $blue-bg 50%, $white-color 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+        line-height: 1.2;
+        // -webkit-text-stroke: 1px #d6c25d15;
+    }
+
+    .technology-section {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .item {
+            padding: 6px 8px;
+            border: 2px dotted #353535;
+            color: #000000;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+            font-size: 15px;
+
+            &:hover {
+                background-color: $rose-bg;
+                color: white;
+                border: 2px solid $rose-bg;
+            }
+        }
+    }
+}
+
+.projects-view-card {
+    background-color: #0e0e0e;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0px;
+    height: 100%;
+    gap: 2rem;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+
+    .icon {
+        background-color: $rose-bg;
+        padding: 1.4rem;
+        color: white;
+        border-radius: 50%;
+        transition: all 0.4s ease-in-out;
+    }
+
+    h2 {
+        color: $rose-bg;
+        font-weight: 600;
+        font-size: 30px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    &:hover {
+        background-color: $rose-bg;
+
+        .icon {
+            background-color: white;
+            color: $rose-bg;
+        }
+
+        h2 {
+            color: white;
+        }
+    }
+}
+
+.hover-cross {
+    transition: color 0.4s ease-in-out;
+    color: #0e0e0e;
+
+    &:hover {
+        color: $rose-bg;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-section {
+        .main-section {
+            padding: 2rem 1rem !important;
+        }
+    }
+
+    .project-card{
+        .technology-section {
+            .item {
+                font-size: 14px !important;
+            }
+        }       
+    }
+}
+
+@media (max-width: 380px) {
+    .projects-section {
+        h1 {
+            font-size: 2.8rem;
+        }
+    }
+}

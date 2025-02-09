@@ -1,0 +1,97 @@
+.my-button {
+    $rose-bg: rgba(233, 75, 75, 0.911);
+    $rose-border: rgba(233, 75, 75, 0.747);
+
+    border: 2px solid $rose-border;
+    color: $rose-bg;
+    padding: 7px 30px;
+    border-radius: 4rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    transition: all 0.3s ease-in-out;
+
+    .arrows {
+        position: relative;
+        width: 25px;
+        height: 22px;
+        // background-color: blue;
+        overflow: hidden;
+
+        .normal-arrow {
+            position: absolute;
+            rotate: 45deg;
+            top: 2px;
+            right: 10%;
+        }
+
+        .hover-arrow {
+            position: absolute;
+            rotate: 45deg;
+            bottom: -15px;
+            right: 90%;
+            color: white;
+        }
+    }
+
+    &:hover {
+        color: white;
+        background-color: $rose-bg;
+
+        .arrows {
+            .normal-arrow {
+                rotate: 45deg;
+                animation: move-hover-arrow 0.4s ease-in-out forwards;
+            }
+
+            .hover-arrow {
+                rotate: 45deg;
+                animation: move-hover-arrow 0.4s ease-in-out forwards;
+            }
+        }
+    }
+
+    &:not(:hover) {
+        .arrows {
+            .normal-arrow {
+                rotate: 45deg;
+                animation: move-normal-arrow 0.4s ease-in-out forwards;
+            }
+
+            .hover-arrow {
+                rotate: 45deg;
+                animation: move-normal-arrow 0.4s ease-in-out forwards;
+            }
+        }
+    }
+}
+
+@keyframes move-hover-arrow {
+    from {
+        // transform: translate(-50px, 50px); // Start from bottom-left
+        transform: translate(0, 0); // Move to the original position (top-right)
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(2px, -27px); // Start from bottom-left
+        opacity: 1;
+    }
+}
+
+@keyframes move-normal-arrow {
+    from {
+        // transform: translate(-50px, 50px); // Start from bottom-left
+        transform: translate(2px, -27px); // Start from bottom-left
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, 0); // Move to the original position (top-right) 
+        opacity: 1;
+    }
+}
