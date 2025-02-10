@@ -128,7 +128,9 @@ const ProjectOnlyCard = ({
                         )
                     )}
                 </div>
-                <p>{content}</p>
+                <p>{
+                    content && content !== "" ? `${content?.substring(0, 70)}...`: content
+                }</p>
                 <Link href={`/projects/${id}`} className="w-auto h-auto">
                     <button>See Details</button>
                 </Link>

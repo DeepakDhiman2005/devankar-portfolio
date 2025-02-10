@@ -44,7 +44,7 @@ const Sidebar = () => {
                 </button>
             </div>
             <div className="sidebar-main">
-                {["/", "/about", "/skills", "/projects", "/gallery", "/contact"].map((path) => (
+                {["/", "/about", "/skills", "/projects", "/contact"].map((path) => (
                     <Link key={path} href={path}>
                         <li className={pathname.startsWith(path) ? "active" : ""}>
                             {path === "/" ? "Home" : path.substring(1).charAt(0).toUpperCase() + path.slice(2)}

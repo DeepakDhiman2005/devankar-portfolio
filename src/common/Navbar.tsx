@@ -29,9 +29,9 @@ const Navbar = () => {
                 <Link href="/projects">
                     <li className={pathname.startsWith('/projects') ? "active": ''}>Projects</li>
                 </Link>
-                <Link href="/gallery">
+                {/* <Link href="/gallery">
                     <li className={pathname.startsWith('/gallary') ? "active": ''}>Gallery</li>
-                </Link>
+                </Link> */}
                 <Link href="/contact">
                     <li className={pathname.startsWith('/contact') ? "active": ''}>Contact</li>
                 </Link>

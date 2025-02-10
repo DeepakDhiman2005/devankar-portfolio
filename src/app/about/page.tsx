@@ -17,7 +17,7 @@ const About = () => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline();
 
-            tl.fromTo('.about-container > .section1 > .image > img', {
+            tl.fromTo('.about-container > .section1 > .image > .image> img', {
                 scale: 0.5,
                 opacity: 0,
             }, {

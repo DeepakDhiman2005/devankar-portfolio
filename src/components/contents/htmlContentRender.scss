@@ -1,0 +1,15 @@
+.html-content-render{
+    ul {
+        list-style: disc;
+        padding-left: 18px;
+    }
+
+    a{ 
+        color: rgb(53, 53, 201);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+    a:hover {
+        color: rgba(233, 75, 75, 0.911);
+    }
+}

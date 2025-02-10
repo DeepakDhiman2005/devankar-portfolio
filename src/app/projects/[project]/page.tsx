@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import "../../../styles/projects.scss";
 import ProjectSlider from "@/components/project-comp/ProjectSlider";
+import HtmlContentRender from "../../../components/contents/HtmlContentRender";
 
 interface ProjectInterface {
     title?: string;
@@ -9,6 +10,7 @@ interface ProjectInterface {
     technology?: Array<string>;
     completeTechnology?: Array<string>;
     content?: string;
+    htmlContent?: string,
     id?: string;
 }
 
@@ -44,18 +46,19 @@ const Project = async ({ params }: { params: tParams }) => {
     const { data } = (await response.json()) as ApiResponse;
 
     return (
-        <main className="w-full flex justify-start items-start gap-x-12 py-10 px-12">
-            <div className="w-1/2">
+        <main className="w-full flex flex-col lg:flex-row gap-y-4 justify-start items-start gap-x-12 py-10 px-6 md:px-12">
+            <div className="w-full lg:w-1/2">
                 <ProjectSlider images={data?.images as string[]} />
             </div>
-            <div className="w-1/2 project-page">
+            <div className="w-full lg:w-1/2 project-page">
                 <h1 className="main-heading">{data?.title}</h1>
                 <div className="technology-section my-2">
                     {data?.completeTechnology?.map((item, index) => (
                         <div key={index} className="item">{item}</div>
                     ))}
                 </div>
-                <p>{data?.content}</p>
+                <HtmlContentRender content={data?.htmlContent} />
+                {/* <p>{data?.content}</p> */}
             </div>
         </main>
     );

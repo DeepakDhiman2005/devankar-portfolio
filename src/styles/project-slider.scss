@@ -95,3 +95,37 @@ $white-color: rgba(205, 218, 255, 0.993);
         }
     }
 }
+
+@media (max-width: 650px) {
+    .project-slider {
+        flex-direction: column-reverse;
+
+        .left,
+        .right {
+            width: 100%;
+            flex-direction: row;
+            position: relative;
+        }
+
+        .left {
+            .arrow-container {
+                width: auto;
+            }
+
+            .left-arrow-container,
+            .right-arrow-container {
+                position: absolute;
+                z-index: 20;
+                top: 40%;
+            }
+
+            .left-arrow-container {
+                left: 0%;
+            }
+
+            .right-arrow-container {
+                right: 0%;
+            }
+        }
+    }   
+}

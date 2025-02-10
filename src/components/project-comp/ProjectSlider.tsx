@@ -7,15 +7,19 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { Swiper as SwiperType } from "swiper";  // ✅ Import Swiper type
+import { Swiper as SwiperType } from "swiper";
+import { useMediaQuery } from "react-responsive";
 
 interface ProjectSliderProps {
     images: string[];
 }
 
 const ProjectSlider = ({ images = [] }: ProjectSliderProps) => {
-    const swiperRef = useRef<SwiperType | null>(null); // ✅ Replaced `any` with `SwiperType`
+    const swiperRef = useRef<SwiperType | null>(null);
     const [isActive, setIsActive] = useState<string | undefined>(images?.[0]);
+
+    // responsive
+    const isMobile = useMediaQuery({ maxWidth: 650 });
 
     const ImageButton = ({ src, active }: { src?: string; active?: boolean }) => (
         <div className={`project-slider-button-image ${active ? 'active' : ''}`} onClick={() => setIsActive(src)}>
@@ -26,15 +30,16 @@ const ProjectSlider = ({ images = [] }: ProjectSliderProps) => {
     return (
         <section className="project-slider">
             <div className="left">
-                <div className="arrow-container">
-                    <div className="arrow" onClick={() => swiperRef.current?.slidePrev()}>
+                <div className="arrow-container left-arrow-container">
+                    <div className="arrow" style={{ rotate: isMobile ? '-90deg': '0deg' }} onClick={() => swiperRef.current?.slidePrev()}>
                         <IoIosArrowUp size={18} />
                     </div>
                 </div>
-                <div className="h-[300px] w-full">
+                <div className={`${isMobile ? 'h-auto': 'h-[300px]'} w-full`}>
                     <Swiper
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
-                        direction="vertical"
+                        // direction="vertical"
+                        direction={isMobile ? 'horizontal': 'vertical'}
                         slidesPerView={2}
                         centeredSlides
                         spaceBetween={50}
@@ -57,8 +62,8 @@ const ProjectSlider = ({ images = [] }: ProjectSliderProps) => {
                         ))}
                     </Swiper>
                 </div>
-                <div className="arrow-container">
-                    <div className="arrow" onClick={() => swiperRef.current?.slideNext()}>
+                <div className="arrow-container right-arrow-container">
+                    <div className="arrow" style={{ rotate: isMobile ? '-90deg': '0deg' }} onClick={() => swiperRef.current?.slideNext()}>
                         <IoIosArrowDown size={18} />
                     </div>
                 </div>
