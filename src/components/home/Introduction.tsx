@@ -127,7 +127,7 @@ const Introduction = () => {
                         <h1>Hello</h1>
                         <h1>I{"\'"}m Devankar</h1>
                     </div>
-                    <p>I am mern stack developer. I have 1 year+ experience in React.js Frontend Development.</p>
+                    <p>I am mern stack developer. I have 1 year+ experience in Mern Stack Development.</p>
 
                     <div className="flex justify-start items-center gap-x-4 introduction-left-buttons">
                         <MyButton>Learn</MyButton>
