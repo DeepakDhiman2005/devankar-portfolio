@@ -112,7 +112,7 @@ const Introduction = () => {
     }, [projects]);
 
     const ContentText = ({ children }: { children: React.ReactNode }) => (
-        <p className="leading-tight italic">
+        <p className="leading-tight">
             <span className="text-[20px]">{"\""}</span>
             {children}
             <span className="text-[20px]">{"\""}</span>
@@ -184,9 +184,9 @@ const Introduction = () => {
                 <Heading>Testimonials</Heading>
 
                 {[
-                    { src: "/images/gallery/devankar.jpg", title: "Devankar Frontend" },
-                    { src: "/images/gallery/team1.png", title: "Backend Team Members" },
-                    { src: "/images/gallery/team2.jpg", title: "Sales Team Members" },
+                    { src: "/images/gallery/devankar.jpg", title: "Devankar Mern Stack", description: 'Passionate MERN Stack Developer with 1.5+ years of experience in building scalable web applications. Proficient in React, Node.js, Express, and MongoDB, with expertise in REST APIs, Redux, Three.js, and Ant Design. Skilled in crafting responsive UI/UX with Material Tailwind and optimizing performance. Dedicated to delivering clean, maintainable code and innovative solutions.' },
+                    { src: "/images/gallery/team1.png", title: "Backend Team Members", description: 'Tarun & Aditya – Skilled Backend Developers specializing in Node.js, Express, MongoDB, and API development. They ensure efficient, secure, and scalable backend architecture, driving seamless application performance.' },
+                    { src: "/images/gallery/team2.jpg", title: "Sales Team Members", description: 'Our Sales Team at Koncept Software Solutions is dedicated to driving business growth, building strong client relationships, and delivering innovative software solutions. With a customer-first approach, we ensure seamless service and satisfaction.' },
                 ].map((item, index) => (
                     <div key={index} className={`gallery-card gallery-card-section${index + 1}`}>
                         <div className="card-image">
@@ -203,7 +203,7 @@ const Introduction = () => {
                         <div className="card-content">
                             <h2>{item.title}</h2>
                             <div className="w-full lg:w-[90%] bg-white h-[1px]"></div>
-                            <ContentText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta tenetur quaerat molestiae blanditiis, commodi ab!</ContentText>
+                            <ContentText>{item?.description}</ContentText>
                             <div className="flex justify-start items-center gap-x-2 text-yellow-500 my-1">
                                 {Array(4).fill(0).map((_, i) => <FaStar key={i} size={18} />)}
                             </div>
