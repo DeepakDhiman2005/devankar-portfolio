@@ -127,7 +127,7 @@ const Introduction = () => {
                         <h1>Hello</h1>
                         <h1>I{"\'"}m Devankar</h1>
                     </div>
-                    <p>I am mern stack developer. I have 1 year+ experience in Mern Stack Development.</p>
+                    <p>I am mern stack developer. I have 1 year experience in React.js Development.</p>
 
                     <div className="flex justify-start items-center gap-x-4 introduction-left-buttons">
                         <MyButton>Learn</MyButton>
@@ -184,7 +184,7 @@ const Introduction = () => {
                 <Heading>Testimonials</Heading>
 
                 {[
-                    { src: "/images/gallery/devankar.jpg", title: "Devankar Mern Stack", description: 'Passionate MERN Stack Developer with 1.5+ years of experience in building scalable web applications. Proficient in React, Node.js, Express, and MongoDB, with expertise in REST APIs, Redux, Three.js, and Ant Design. Skilled in crafting responsive UI/UX with Material Tailwind and optimizing performance. Dedicated to delivering clean, maintainable code and innovative solutions.' },
+                    { src: "/images/gallery/devankar.jpg", title: "Devankar Mern Stack", description: 'Passionate React.js Developer with 1 years of experience in building scalable web applications. Proficient in React, Node.js, Express, and MongoDB, with expertise in REST APIs, Redux, Three.js, and Ant Design. Skilled in crafting responsive UI/UX with Material Tailwind and optimizing performance. Dedicated to delivering clean, maintainable code and innovative solutions.' },
                     { src: "/images/gallery/team1.png", title: "Backend Team Members", description: 'Tarun & Aditya – Skilled Backend Developers specializing in Node.js, Express, MongoDB, and API development. They ensure efficient, secure, and scalable backend architecture, driving seamless application performance.' },
                     { src: "/images/gallery/team2.jpg", title: "Sales Team Members", description: 'Our Sales Team at Koncept Software Solutions is dedicated to driving business growth, building strong client relationships, and delivering innovative software solutions. With a customer-first approach, we ensure seamless service and satisfaction.' },
                 ].map((item, index) => (
