@@ -32,9 +32,9 @@ const Navbar = () => {
                 {/* <Link href="/gallery">
                     <li className={pathname.startsWith('/gallary') ? "active": ''}>Gallery</li>
                 </Link> */}
-                <Link href="/contact">
+                {/* <Link href="/contact">
                     <li className={pathname.startsWith('/contact') ? "active": ''}>Contact</li>
-                </Link>
+                </Link> */}
             </ul>
 
             <div className="burger" onClick={() => {

@@ -80,7 +80,7 @@ const About = () => {
                 <div className="about-intro overflow-hidden">
                     <h1>About Us</h1>
                     {/* <h3>I{"\'"}m Devankar. Frontend (React.js) Developer.</h3> */}
-                    <h3>I{"\'"}m Devankar. Mern Stack Developer.</h3>
+                    <h3 className="dark:text-white">I{"\'"}m Devankar. Mern Stack Developer.</h3>
                     <p className="font-medium"><span className="font-semibold">Email:</span> dhimandeepak957@gmail.com</p>
                     <p className="font-medium"><span className="font-semibold">Mobile:</span> +91-9319558980</p>
                     <p className="font-medium"><span className="font-semibold">Eduction:</span> BCA (Pursuing)</p>
@@ -118,17 +118,17 @@ const About = () => {
 
                 <div className="flex flex-col lg:flex-row justify-start lg:justify-between w-full items-start lg:items-center">
                     <h2 className="font-semibold">Frontend Developer React.js</h2>
-                    <h3>Delhi, India | 07/2023 – 02/2025</h3>
+                    <h3>Delhi, India | 05/2024 – 04/2025</h3>
                 </div>
 
-                <h2 className="font-semibold">Internship at OCPL Tech (6 months)</h2>
+                <h2 className="font-semibold">Internship at OCPL Tech (3 months)</h2>
                 <ul>
                     <li className="pl-[2px]">1. Built 4+ web projects, including a custom CRM, using React.js and Node.js</li>
                     <li>2. Improved the ocpl.tech website by adding blogging functionality to boost content management.</li>
                     <li>3. Gained experience in agile development, Git, and modern web practices.</li>
                 </ul>
 
-                <h2 className="font-semibold">Full-time Developer at Koncept Software Solutions (10 months)</h2>
+                <h2 className="font-semibold">Full-time Developer at Koncept Software Solutions (9 months)</h2>
                 <ul>
                     <li className="pl-[2px]">1. Managed 10+ projects, including CRMs, payment gateways, and bulk communication tools.</li>
                     <li>2. Developed scalable interfaces with React.js, JavaScript, and HTML/CSS.</li>
